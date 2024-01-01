@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/all_news_card"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/all_news_thumbnail_image"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_thumbnail_image_landscape" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/all_news_source_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmsans_bold"
+        android:textSize="14sp"
+        android:layout_marginStart="16sp"
+        android:text="@string/news_source"
+        app:layout_constraintStart_toEndOf="@+id/all_news_card"
+        app:layout_constraintTop_toTopOf="@id/all_news_card"/>
+
+    <TextView
+        android:id="@+id/all_news_date_text"
+        style="@style/News.Text.Label.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dd_mmmm_yyyy"
+        app:layout_constraintBottom_toBottomOf="@+id/all_news_source_text"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/all_news_title_text"
+        style="@style/News.Text.Title.Small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="@string/placeholder_text"
+        app:layout_constraintBottom_toBottomOf="@+id/all_news_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/all_news_card"
+        app:layout_constraintTop_toBottomOf="@+id/all_news_source_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">News</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="latest_news">Berita Terkini</string>
+    <string name="top_headline_title">Top Headline Title</string>
+    <string name="top_headline_source">Top Headline Source</string>
+    <string name="dd_mmmm_yyyy">dd-mmmm-yyyy</string>
+    <string name="all_news">Semua Berita</string>
+    <string name="news_source">News Source</string>
+    <string name="placeholder_text">Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</string>
 </resources>
