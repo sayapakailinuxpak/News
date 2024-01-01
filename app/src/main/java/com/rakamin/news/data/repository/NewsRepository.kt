@@ -5,8 +5,6 @@ import com.rakamin.news.data.dto.NewsDto
 import com.rakamin.news.data.service.NewsService
 import com.rakamin.news.data.util.ResourceState
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 private const val TAG = "NewsRepository"

@@ -1,7 +1,5 @@
 package com.rakamin.news.presentation
 
-import com.rakamin.news.data.dto.NewsDto
-
 data class NewsUiState(
     val isLoading: Boolean = false,
     val errorMessage: String = "",

@@ -1,5 +1,6 @@
 package com.rakamin.news.presentation.list_adapter
 
+import android.annotation.SuppressLint
 import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,23 +9,22 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.rakamin.news.R
 import com.rakamin.news.databinding.HeadlinesItemBinding
-import com.rakamin.news.databinding.NewsItemBinding
 import com.rakamin.news.presentation.TopHeadlineUiState
 
 private const val TAG = "TopHeadlineAdapter"
 
 class TopHeadlineAdapter(
-    private val dataset: List<TopHeadlineUiState>
 ) :  RecyclerView.Adapter<TopHeadlineAdapter.ViewHolder>(){
 
-    private lateinit var binding: HeadlinesItemBinding
-
-    inner class ViewHolder(private val binding: HeadlinesItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
+    private lateinit var dataset: List<TopHeadlineUiState>
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(dataset: List<TopHeadlineUiState>) {
+        this.dataset = dataset
+        notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = HeadlinesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopHeadlineAdapter.ViewHolder {
+        val binding = HeadlinesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -32,12 +32,12 @@ class TopHeadlineAdapter(
         return dataset.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = dataset[position]
-        binding.apply {
+    override fun onBindViewHolder(holder: TopHeadlineAdapter.ViewHolder, position: Int) {
+        val item = this.dataset[position]
+        holder.binding.apply {
             topHeadlineTitleText.movementMethod = ScrollingMovementMethod()
-
             topHeadlineImage.load(data = item.image) {
+                crossfade(true)
                 placeholder(drawableResId = R.drawable.default_thumbnail_image_landscape)
             }
             topHeadlineTitleText.text = item.title
@@ -45,5 +45,10 @@ class TopHeadlineAdapter(
             Log.d(TAG, "onBindViewHolder TH: ${item.publishedAt}")
             topHeadlineDateText.text = item.publishedAt
         }
+
+    }
+
+    inner class ViewHolder(val binding: HeadlinesItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
     }
 }

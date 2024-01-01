@@ -1,19 +1,15 @@
 package com.rakamin.news.presentation
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.LinearLayoutManager
-import coil.load
 import com.rakamin.news.databinding.FragmentNewsBinding
 import com.rakamin.news.di.Injection
 import com.rakamin.news.presentation.list_adapter.AllNewsAdapter
@@ -59,7 +55,8 @@ class NewsFragment : Fragment() {
 
 
 
-                val topHeadlineAdapter = TopHeadlineAdapter(it.topHeadlineItems)
+                val topHeadlineAdapter = TopHeadlineAdapter()
+                topHeadlineAdapter.setData(it.topHeadlineItems)
                 topHeadlineRv.layoutManager = LinearLayoutManager(this@NewsFragment.context, LinearLayoutManager.HORIZONTAL, false)
                 topHeadlineRv.adapter = topHeadlineAdapter
 
